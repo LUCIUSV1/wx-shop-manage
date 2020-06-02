@@ -25,7 +25,7 @@ public class ProductInfoController {
 
     @RequestMapping("/wel")
     public String Welcome(){
-        return "der";
+        return "der 123456";
     }
     @RequestMapping("/getProductList/{page}/{size}")
     public Page<ProductInfo> getProductList(@PathVariable("page")Integer page
