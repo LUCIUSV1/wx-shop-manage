@@ -23,7 +23,7 @@ public class ProductInfoController {
     @Autowired
     private ProductInfoMapper mapper;
 
-    @RequestMapping("/h")
+    @RequestMapping("/wel")
     public String Welcome(){
         return "der";
     }
