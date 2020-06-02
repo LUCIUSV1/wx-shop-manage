@@ -23,6 +23,10 @@ public class ProductInfoController {
     @Autowired
     private ProductInfoMapper mapper;
 
+    @RequestMapping("/h")
+    public String Welcome(){
+        return "der";
+    }
     @RequestMapping("/getProductList/{page}/{size}")
     public Page<ProductInfo> getProductList(@PathVariable("page")Integer page
             ,@PathVariable("size")Integer size){
