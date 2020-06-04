@@ -7,6 +7,7 @@ import com.lucius.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,8 @@ public class UserController {
 
     @RequestMapping("/login")
     public String login(@RequestParam("userName")String userName,
-                        @RequestParam("password")String password){
+                        @RequestParam("password")String password,
+                        HttpSession session){
 
 
         QueryWrapper wrapper = new QueryWrapper();
@@ -32,6 +34,7 @@ public class UserController {
 //        wrapper.inSql()
         List<SellerInfo> list =  userMapper.selectList(wrapper);
         if(list.size()>0){
+            session.setAttribute("user",list.get(0));
             //登录成功
             return "{\"code\":\"200\",\"msg\":\"登录成功\"}";
         }else{

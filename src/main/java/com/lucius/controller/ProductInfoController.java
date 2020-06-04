@@ -23,10 +23,8 @@ public class ProductInfoController {
     @Autowired
     private ProductInfoMapper mapper;
 
-    @RequestMapping("/wel")
-    public String Welcome(){
-        return "der 123456";
-    }
+
+    //查询所有商品
     @RequestMapping("/getProductList/{page}/{size}")
     public Page<ProductInfo> getProductList(@PathVariable("page")Integer page
             ,@PathVariable("size")Integer size){
@@ -39,4 +37,6 @@ public class ProductInfoController {
 //        System.out.println(list.);
         return list;
     }
+
+
 }
