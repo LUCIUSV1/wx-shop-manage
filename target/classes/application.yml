@@ -4,11 +4,18 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/wx_shop?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
-    password: Qaz0514..
+    password: root
     #root Qaz0514..
-
-mybatis-plus:
+  jpa:
+    database-platform=org:
+      hibernate:
+        dialect:
+          MySQLDialect:mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  security:
+#    user:
+#      name: lucius
+#      password: 123
 server:
-  port: 9090
+  port: 8888
