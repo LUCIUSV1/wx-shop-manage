@@ -28,13 +28,13 @@ public class ResultFilter implements Filter {
 
         //设置允许跨域的配置
         // 这里填写你允许进行跨域的主机ip（正式上线时可以动态配置具体允许的域名和IP）
-//        rep.setHeader("Access-Control-Allow-Origin", "*");
-//        // 允许的访问方法
-//        rep.setHeader("Access-Control-Allow-Methods","POST, GET, PUT, OPTIONS, DELETE, PATCH");
-//        // Access-Control-Max-Age 用于 CORS 相关配置的缓存
-//        rep.setHeader("Access-Control-Max-Age", "3600");
-//        rep.setHeader("Access-Control-Allow-Headers","token,Origin, X-Requested-With, Content-Type, Accept");
-//
+        rep.setHeader("Access-Control-Allow-Origin", "*");
+        // 允许的访问方法
+        rep.setHeader("Access-Control-Allow-Methods","POST, GET, PUT, OPTIONS, DELETE, PATCH");
+        // Access-Control-Max-Age 用于 CORS 相关配置的缓存
+        rep.setHeader("Access-Control-Max-Age", "3600");
+        rep.setHeader("Access-Control-Allow-Headers","token,Origin, X-Requested-With, Content-Type, Accept");
+
 
 //        servletResponse.setCharacterEncoding("UTF-8");
 //        servletResponse.setContentType("application/json; charset=utf-8");
@@ -43,15 +43,15 @@ public class ResultFilter implements Filter {
         if(path.contains("login")){
             filterChain.doFilter(servletRequest, servletResponse);
         }else {
-            String token = req.getHeader("token");//header方式
-            System.out.println(token);
-            String checkToken = TokenTest.checkToken(token);
-            System.out.println("checkToken Result: " + checkToken);
-            if (checkToken != "F") {
+//            String token = req.getHeader("Authorization");//header方式
+//            System.out.println(token);
+//            String checkToken = TokenTest.checkToken(token);
+//            System.out.println("checkToken Result: " + checkToken);
+//            if (checkToken != "") {
                 filterChain.doFilter(servletRequest, servletResponse);
-            } else {
-
-            }
+//            } else {
+//
+//            }
         }
     }
 
